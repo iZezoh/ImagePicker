@@ -147,6 +147,8 @@ extension ViewController : UIImagePickerControllerDelegate {
 
 
 
+
+
 // MARK: UITextFieldDelegate ,,,
 // This will handle the textFields
 extension ViewController : UITextFieldDelegate {
@@ -170,10 +172,16 @@ extension ViewController : UITextFieldDelegate {
 } // End of UITextFieldDelegate Extension
 
 
+
+
+
+
 // MARK: Meme Func ,,,
 // This is for Meme Functionality
 extension ViewController {
     
+    
+    // This method saves the photo
     @IBAction func save(_ sender: Any) {
         // Create the meme
         let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imageView.image!, memedImage: generateMemedImage())
@@ -181,6 +189,8 @@ extension ViewController {
         UIImageWriteToSavedPhotosAlbum(img, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
     
+    
+    // This method hide navbar and toolbar to save the whole screen with texts as a single image
     func generateMemedImage() -> UIImage {
         
         // TODO: Hide toolbar and navbar
@@ -200,15 +210,14 @@ extension ViewController {
         return memedImage
     }
     
+    // This method create the meme and present UIActivityViewController to share the meme
     @IBAction func shareAction() {
-        
         let items = [generateMemedImage()]
         let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
-//        ac.completionWithItemsHandler
         present(ac, animated: true)
-        
     }
     
+    // Got this code from internet to save image to album
     @objc func image(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
         if let error = error {
             // we got back an error!
@@ -220,9 +229,12 @@ extension ViewController {
             ac.addAction(UIAlertAction(title: "OK", style: .default))
             present(ac, animated: true)
         }
-    }
+    } // End of image func
     
-}
+} // End of ViewController Extension
+
+
+
 
 // MARK: Meme Struct ,,,
 struct Meme {
