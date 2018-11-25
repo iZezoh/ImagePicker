@@ -18,38 +18,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P7e-EF-o3o">
-                                <rect key="frame" x="67.5" y="228.5" width="240" height="210"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="Cwt-lK-m6g"/>
-                                    <constraint firstAttribute="height" constant="210" id="mQ5-91-a1g"/>
-                                </constraints>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P7e-EF-o3o">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9j6-Hh-RHW">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
                                     <barButtonItem title="Pick" id="3aU-Li-mqu">
                                         <connections>
-                                            <action selector="pickAnImageFromAlbum:" destination="BYZ-38-t0r" id="JZT-Yt-4hO"/>
+                                            <action selector="chooseImageFromCameraOrPhoto:" destination="BYZ-38-t0r" id="dAy-fX-ok7"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="SaX-vb-jaO"/>
-                                    <barButtonItem title="Camera" id="6CL-py-wdw" userLabel="Cam">
+                                    <barButtonItem tag="1" systemItem="camera" id="6CL-py-wdw" userLabel="Cam">
                                         <connections>
-                                            <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="12t-bS-an2"/>
+                                            <action selector="chooseImageFromCameraOrPhoto:" destination="BYZ-38-t0r" id="0JN-c4-o1g"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
                                 <color key="tintColor" red="0.0" green="0.4793452024" blue="0.99908632040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </toolbar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="swy-0K-AfM" userLabel="Top">
-                                <rect key="frame" x="16" y="117" width="343" height="28"/>
+                                <rect key="frame" x="16" y="86" width="343" height="28"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hPn-xz-oCW" userLabel="Bottom">
-                                <rect key="frame" x="16" y="479" width="343" height="28"/>
+                                <rect key="frame" x="16" y="569" width="343" height="28"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
@@ -57,29 +53,33 @@
                         </subviews>
                         <color key="backgroundColor" red="0.06308012455701828" green="0.21041962504386902" blue="0.23173755407333374" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="P7e-EF-o3o" firstAttribute="top" secondItem="swy-0K-AfM" secondAttribute="bottom" constant="83.5" id="03R-Op-EOx"/>
-                            <constraint firstItem="P7e-EF-o3o" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="8QZ-pa-Eei"/>
-                            <constraint firstItem="swy-0K-AfM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="C78-yF-83a"/>
-                            <constraint firstItem="P7e-EF-o3o" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HdD-Mh-lmY"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hPn-xz-oCW" secondAttribute="trailing" constant="16" id="RVg-tR-p7H"/>
-                            <constraint firstItem="9j6-Hh-RHW" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ZIA-dN-R7T"/>
-                            <constraint firstItem="9j6-Hh-RHW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ghg-R6-TmZ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="swy-0K-AfM" secondAttribute="trailing" constant="16" id="pzl-pz-HhO"/>
-                            <constraint firstItem="hPn-xz-oCW" firstAttribute="top" secondItem="P7e-EF-o3o" secondAttribute="bottom" constant="40.5" id="tH3-wE-pCi"/>
-                            <constraint firstItem="9j6-Hh-RHW" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="yjV-jT-KF2"/>
-                            <constraint firstItem="hPn-xz-oCW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="z2P-6S-7ix"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="P7e-EF-o3o" secondAttribute="trailing" id="2tj-HK-77z"/>
+                            <constraint firstItem="9j6-Hh-RHW" firstAttribute="top" secondItem="hPn-xz-oCW" secondAttribute="bottom" constant="26" id="2vy-3Z-0Xx"/>
+                            <constraint firstItem="P7e-EF-o3o" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6k9-m3-E75"/>
+                            <constraint firstItem="P7e-EF-o3o" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="BhE-Xp-poI"/>
+                            <constraint firstItem="swy-0K-AfM" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Hzm-xC-cbh"/>
+                            <constraint firstItem="hPn-xz-oCW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="IfL-od-wSn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="P7e-EF-o3o" secondAttribute="bottom" constant="44" id="Mti-1I-5a7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="swy-0K-AfM" secondAttribute="trailing" constant="16" id="OD4-jj-KYM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hPn-xz-oCW" secondAttribute="trailing" constant="16" id="Sfy-fK-hht"/>
+                            <constraint firstItem="swy-0K-AfM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="bqA-01-QDz"/>
+                            <constraint firstItem="hPn-xz-oCW" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="iJG-jc-NJp"/>
+                            <constraint firstItem="9j6-Hh-RHW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rEu-TR-bnA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9j6-Hh-RHW" secondAttribute="trailing" id="tl8-70-gbN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="9j6-Hh-RHW" secondAttribute="bottom" id="xb8-0t-nEs"/>
+                            <constraint firstItem="swy-0K-AfM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="22" id="zTa-Jc-xFW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Image Picker" id="5fQ-zW-B8M">
-                        <barButtonItem key="leftBarButtonItem" title="Share" id="7Cm-dW-91q">
+                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="7Cm-dW-91q">
                             <connections>
                                 <action selector="shareAction" destination="BYZ-38-t0r" id="k9W-HI-Y9T"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="ur2-H3-MEZ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ur2-H3-MEZ">
                             <connections>
-                                <action selector="save:" destination="BYZ-38-t0r" id="da6-S8-7vt"/>
+                                <action selector="save" destination="BYZ-38-t0r" id="8Cf-0C-Bxa"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
