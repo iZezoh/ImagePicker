@@ -85,7 +85,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
     // move the screen up when the keyboard is covering the textfield
     @objc func keyboardWillShow(_ notification:Notification) {
         if bottomText.isEditing {
-            view.frame.origin.y -= getKeyboardHeight(notification)
+            view.frame.origin.y = -getKeyboardHeight(notification)
         }
     }
     
@@ -120,7 +120,7 @@ extension ViewController : UIImagePickerControllerDelegate {
         var source : UIImagePickerController.SourceType
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
-        pickerController.allowsEditing = true
+        pickerController.allowsEditing = false
         if sender.tag == 0 {
             source = .photoLibrary
         } else {
